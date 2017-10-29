@@ -20,7 +20,8 @@ using namespace cv;
 enum FOCUS_ALG
 {
 	LAPV = 0,
-	LAPM = 1
+	LAPM = 1,
+    CANNY = 2
 };
 
 class FocusFinder
@@ -45,6 +46,8 @@ protected :
 	double modLaplacian(Mat img);
 
 	double varLaplacian(Mat img);
+  
+    double edgeCount(Mat img);
 
 	VideoCapture * m_cap;
 
@@ -55,6 +58,7 @@ protected :
 	// MOVE THESE VALUES TO A CONFIG FILE
 	double m_dTable;
 	double m_stepLarge;
+    double m_stepSmall;
   
 };
 #endif /* FocusFinder_hpp */
