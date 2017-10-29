@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		58305A341FA699D4000FBAE8 /* FocusFinder.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 5891D9A61FA3E4A000CA2AE9 /* FocusFinder.cpp */; };
 		5891D94B1FA3DA1F00CA2AE9 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 5891D94A1FA3DA1F00CA2AE9 /* main.cpp */; };
 		5891D97C1FA3E3AC00CA2AE9 /* libopencv_aruco.3.3.1.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 5891D9521FA3E3AC00CA2AE9 /* libopencv_aruco.3.3.1.dylib */; };
 		5891D97D1FA3E3AC00CA2AE9 /* libopencv_bgsegm.3.3.1.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 5891D9531FA3E3AC00CA2AE9 /* libopencv_bgsegm.3.3.1.dylib */; };
@@ -50,10 +51,18 @@
 		5891D9A31FA3E3AC00CA2AE9 /* libopencv_ximgproc.3.3.1.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 5891D9791FA3E3AC00CA2AE9 /* libopencv_ximgproc.3.3.1.dylib */; };
 		5891D9A41FA3E3AC00CA2AE9 /* libopencv_xobjdetect.3.3.1.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 5891D97A1FA3E3AC00CA2AE9 /* libopencv_xobjdetect.3.3.1.dylib */; };
 		5891D9A51FA3E3AC00CA2AE9 /* libopencv_xphoto.3.3.1.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 5891D97B1FA3E3AC00CA2AE9 /* libopencv_xphoto.3.3.1.dylib */; };
-		5891D9A81FA3E4A000CA2AE9 /* FocusFinder.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 5891D9A61FA3E4A000CA2AE9 /* FocusFinder.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
+		58305A2A1FA69838000FBAE8 /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = /usr/share/man/man1/;
+			dstSubfolderSpec = 0;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 1;
+		};
 		5891D9451FA3DA1F00CA2AE9 /* CopyFiles */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
@@ -66,6 +75,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		58305A2C1FA69838000FBAE8 /* basicviewer */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = basicviewer; sourceTree = BUILT_PRODUCTS_DIR; };
 		5891D9471FA3DA1F00CA2AE9 /* katetest */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = katetest; sourceTree = BUILT_PRODUCTS_DIR; };
 		5891D94A1FA3DA1F00CA2AE9 /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
 		5891D9521FA3E3AC00CA2AE9 /* libopencv_aruco.3.3.1.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libopencv_aruco.3.3.1.dylib; path = opencvlibs/libopencv_aruco.3.3.1.dylib; sourceTree = "<group>"; };
@@ -115,6 +125,13 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		58305A291FA69838000FBAE8 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		5891D9441FA3DA1F00CA2AE9 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -182,6 +199,7 @@
 			isa = PBXGroup;
 			children = (
 				5891D9471FA3DA1F00CA2AE9 /* katetest */,
+				58305A2C1FA69838000FBAE8 /* basicviewer */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -246,6 +264,23 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		58305A2B1FA69838000FBAE8 /* basicviewer */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 58305A301FA69838000FBAE8 /* Build configuration list for PBXNativeTarget "basicviewer" */;
+			buildPhases = (
+				58305A281FA69838000FBAE8 /* Sources */,
+				58305A291FA69838000FBAE8 /* Frameworks */,
+				58305A2A1FA69838000FBAE8 /* CopyFiles */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = basicviewer;
+			productName = basicviewer;
+			productReference = 58305A2C1FA69838000FBAE8 /* basicviewer */;
+			productType = "com.apple.product-type.tool";
+		};
 		5891D9461FA3DA1F00CA2AE9 /* katetest */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 5891D94E1FA3DA1F00CA2AE9 /* Build configuration list for PBXNativeTarget "katetest" */;
@@ -272,6 +307,10 @@
 				LastUpgradeCheck = 0810;
 				ORGANIZATIONNAME = "Katherine Pachal";
 				TargetAttributes = {
+					58305A2B1FA69838000FBAE8 = {
+						CreatedOnToolsVersion = 8.1;
+						ProvisioningStyle = Automatic;
+					};
 					5891D9461FA3DA1F00CA2AE9 = {
 						CreatedOnToolsVersion = 8.1;
 						ProvisioningStyle = Automatic;
@@ -291,16 +330,24 @@
 			projectRoot = "";
 			targets = (
 				5891D9461FA3DA1F00CA2AE9 /* katetest */,
+				58305A2B1FA69838000FBAE8 /* basicviewer */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXSourcesBuildPhase section */
+		58305A281FA69838000FBAE8 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		5891D9431FA3DA1F00CA2AE9 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5891D9A81FA3E4A000CA2AE9 /* FocusFinder.cpp in Sources */,
+				58305A341FA699D4000FBAE8 /* FocusFinder.cpp in Sources */,
 				5891D94B1FA3DA1F00CA2AE9 /* main.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -308,6 +355,20 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin XCBuildConfiguration section */
+		58305A311FA69838000FBAE8 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		58305A321FA69838000FBAE8 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
 		5891D94C1FA3DA1F00CA2AE9 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -405,6 +466,7 @@
 					/usr/local/lib,
 					"$(PROJECT_DIR)/opencvlibs",
 				);
+				NEW_SETTING = "";
 				ONLY_ACTIVE_ARCH = YES;
 				OTHER_LDFLAGS = "";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -421,6 +483,7 @@
 					/usr/local/lib,
 					"$(PROJECT_DIR)/opencvlibs",
 				);
+				NEW_SETTING = "";
 				ONLY_ACTIVE_ARCH = YES;
 				OTHER_LDFLAGS = "";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -430,6 +493,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		58305A301FA69838000FBAE8 /* Build configuration list for PBXNativeTarget "basicviewer" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				58305A311FA69838000FBAE8 /* Debug */,
+				58305A321FA69838000FBAE8 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		5891D9421FA3DA1F00CA2AE9 /* Build configuration list for PBXProject "katetest" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (

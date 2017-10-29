@@ -33,26 +33,11 @@ FocusFinder::~FocusFinder()
 
 void FocusFinder::Focus() {
 
-
-    // For displaying frames as we go.
-    Mat edges;
-    namedWindow("status",1);
-//    for(int i=0; i<5; i++)
-//    {
-//        Mat frame;
-//        m_cap->read(frame); // get a new frame from camera
-//        double focus_measure = ComputeFocus(frame);
-//        cvtColor(frame, edges, COLOR_BGR2GRAY);
-//        GaussianBlur(edges, edges, Size(7,7), 1.5, 1.5);
-//        Canny(edges, edges, 0, 30, 3);
-//        imshow("image", edges);
-//        imshow("status", frame);
-//
-//        if(waitKey(30) >= 0) break;
-//    }
-
     // Going to iteratively move around until we are in focus.
     // Roughly follow algorithm in [this paper]
+
+    // For displaying frames as we go
+    namedWindow("status",1);
 
     // Store what focus regime we are in
     bool foundFocus = false;
@@ -79,7 +64,6 @@ void FocusFinder::Focus() {
         m_cap->read(frame);
         imshow("status", frame);
         double focus_measure = ComputeFocus(frame);
-//        imshow("status", frame);
       
         // If this is the first movement, just store itself as previous
         // measure to compare to.
@@ -89,6 +73,7 @@ void FocusFinder::Focus() {
         // it means we are stepping out of interesting area.
         // Stop and go carefully backwards in IF regime.
         if (focus_measure < prevMeasure) {
+          std::cout << "prev, now: " << prevMeasure << " " << focus_measure << std::endl;
 
           if (regime == OOF) {
 
@@ -100,12 +85,11 @@ void FocusFinder::Focus() {
             dir = -1 * dir;
             SetAlg(LAPV);
           
-            // Also reset focus measure because comparing number
+            // Also reset focus measure to new quantity
+            // because comparing number
             // of edges to Laplacian isn't useful.
-            prevMeasure = -1;
-          
-//            continue;
-          
+            focus_measure = ComputeFocus(frame);
+            
           } else {
             
             // If we are in the in-focus region,
@@ -155,17 +139,18 @@ void FocusFinder::Focus() {
     
         // Move by step size in desired direction and rest a
         // little to let camera refocus.
-      
+
         // MOVE
         std::cout << "Moving by " << stepSize*dir << std::endl;
       
         // REST
         std::cout << "Resting" << std::endl;
         std::this_thread::sleep_for(std::chrono::milliseconds(2000));
+        if(waitKey(30) >= 0) break;
       
         // Store this measure for reference next time
         prevMeasure = focus_measure;
-    
+
     }
 
 
@@ -266,11 +251,6 @@ double FocusFinder::edgeCount(Mat img) {
     //Count the number of pixel representing an edge
     int nCountCanny = countNonZero(img);
 
-    //Compute a sharpness grade:
-    // < 1.5 = blurred, in movement
-    // de 1.5 à 6 = acceptable
-    // > 6 =stable, sharp
-//    double dSharpness = (nCountCanny * 1000.0 / (imgCanny.Cols * imgCanny.Rows));
     return nCountCanny;
   
 }
