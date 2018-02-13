@@ -62,7 +62,7 @@ void FocusFinder::Focus() {
         // And, show us what it looks like!
         Mat frame;
         m_cap->read(frame);
-        imshow("status", frame);
+        //imshow("status", frame);
         double focus_measure = ComputeFocus(frame);
       
         // If this is the first movement, just store itself as previous
@@ -158,6 +158,8 @@ void FocusFinder::Focus() {
 
 double FocusFinder::ComputeFocus(Mat img) {
 
+    std::cout << "WTF DO WE HAVE " << img.depth() << " " << img.channels() << " " << img.type() << std::endl;
+ 
 	// Step 1: convert to greyscale
 	img = EnsureGrayscale(img);
 
@@ -247,6 +249,7 @@ double FocusFinder::edgeCount(Mat img) {
 
     // Apply Canny edge detection
     Canny(img, img, 0, 30, 3);
+    imshow("status", img);
 
     //Count the number of pixel representing an edge
     int nCountCanny = countNonZero(img);
